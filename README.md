@@ -1,1 +1,5 @@
-# PZ1
+# Agile Programming
+Authors: 
+- Mateusz Balcer
+- Szymon Betlewski
+...
