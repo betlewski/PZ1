@@ -15,6 +15,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "task_id")
     private Integer taskId;
 
     @Column(nullable = false, length = 50)
@@ -30,7 +31,7 @@ public class Task {
     private LocalDateTime createDateTime;
 
     @ManyToOne
-    @JoinColumn(name = "projectId")
+    @JoinColumn(name = "project_id")
     private Project project;
 
     public Task(String name, String description, Integer sequence) {

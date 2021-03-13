@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Set;
 
 @Entity
@@ -14,6 +15,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
     private Integer studentId;
 
     @Column(nullable = false, length = 50)
@@ -25,6 +27,7 @@ public class Student {
     @Column(nullable = false, unique = true, length = 20)
     private String indexNumber;
 
+    @Email
     @Column(length = 50)
     private String email;
 

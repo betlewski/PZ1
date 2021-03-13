@@ -18,6 +18,7 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "project_id")
     private Integer projectId;
 
     @Column(nullable = false, length = 50)
@@ -40,9 +41,9 @@ public class Project {
     private List<Task> tasks;
 
     @ManyToMany
-    @JoinTable(name = "project_student",
-            joinColumns = {@JoinColumn(name = "projectId")},
-            inverseJoinColumns = {@JoinColumn(name = "studentId")})
+    @JoinTable(name = "projects_students",
+            joinColumns = {@JoinColumn(name = "project_id")},
+            inverseJoinColumns = {@JoinColumn(name = "student_id")})
     private Set<Student> students;
 
     public Project(String name, String description) {
