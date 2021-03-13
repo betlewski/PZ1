@@ -1,4 +1,4 @@
-package main.java.pl.edu.utp.pz1;
+package pl.edu.utp.pz1;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
