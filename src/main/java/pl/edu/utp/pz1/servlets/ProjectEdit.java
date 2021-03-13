@@ -1,4 +1,4 @@
-package pl.edu.utp.pz1;
+package pl.edu.utp.pz1.servlets;
 
 import pl.edu.utp.pz1.model.Project;
 import pl.edu.utp.pz1.util.HibernateUtil;
@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-@WebServlet(name = "ProjectEdit")
+@WebServlet(name = "ProjectEdit", value = "/project-edit")
 public class ProjectEdit extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("btn_save") != null) {
+        if (request.getParameter("btn_save") != null) {
             EntityManager entityManager = HibernateUtil.getInstance().createEntityManager();
             Project project = new Project("Projekt testowy", "Opis testowy");
-            project.setCreateDateTime(LocalDateTime.of(2021, 03, 6, 10, 0));
-            project.setSubmitDateTime(LocalDateTime.of(2021, 03, 7, 10, 0));
+            project.setCreateDateTime(LocalDateTime.now());
+            project.setSubmitDateTime(LocalDateTime.now().plusDays(7));
             entityManager.getTransaction().begin();
             entityManager.persist(project);
             entityManager.getTransaction().commit();

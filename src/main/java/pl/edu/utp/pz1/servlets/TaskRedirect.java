@@ -1,4 +1,4 @@
-package pl.edu.utp.pz1;
+package pl.edu.utp.pz1.servlets;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "TaskRedirect")
+@WebServlet(name = "TaskRedirect", value = "/task-redirect")
 public class TaskRedirect extends HttpServlet {
 
     private static final String CONTENT_TYPE = "text/html;charset=UTF-8";

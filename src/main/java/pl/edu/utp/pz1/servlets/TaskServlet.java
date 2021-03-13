@@ -1,4 +1,4 @@
-package pl.edu.utp.pz1;
+package pl.edu.utp.pz1.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
