@@ -1,7 +1,8 @@
 package pl.edu.utp.pz1.model;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,7 +14,8 @@ import java.util.Set;
 @Entity
 @Table(name = "projects")
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Project {
 
     @Id
