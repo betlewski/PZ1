@@ -16,11 +16,13 @@ import java.io.IOException;
 @WebServlet(name = "ProjectFind", value = "/project-find")
 public class ProjectFind extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String idParameter = request.getParameter("id");
@@ -29,7 +31,7 @@ public class ProjectFind extends HttpServlet {
             EntityManager entityManager = HibernateUtil.getInstance().createEntityManager();
             try {
                 findByEntity(entityManager, projectId);
-                findByJPQL(entityManager, projectId);
+                // findByJPQL(entityManager, projectId);
             } finally {
                 entityManager.close();
             }

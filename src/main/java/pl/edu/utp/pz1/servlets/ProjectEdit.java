@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @WebServlet(name = "ProjectEdit", value = "/project-edit")
 public class ProjectEdit extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("btn_save") != null) {
@@ -37,6 +38,7 @@ public class ProjectEdit extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
