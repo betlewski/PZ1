@@ -19,18 +19,22 @@
         margin: 0.5em;
     }
 </style>
+<link rel="stylesheet" href="css/styled-table.css">
 <body>
 <h2>Lista projektów</h2>
-<table border="1" cellpadding="3">
-    <tr>
-        <th>Lp.</th>
-        <th>Id</th>
-        <th>Nazwa</th>
-        <th>Opis</th>
-        <th>Utworzony</th>
-        <th>Data obrony</th>
-        <th>Edycja</th>
-    </tr>
+<table border="1" cellpadding="3" class="styled-table">
+    <thead>
+        <tr>
+            <th>Lp.</th>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Utworzony</th>
+            <th>Data obrony</th>
+            <th>Edycja</th>
+        </tr>
+    </thead>
+    <tbody>
     <c:forEach var="project" items="${requestScope.projects}" varStatus="info">
         <tr>
             <td>${info.count}.</td>
@@ -49,9 +53,10 @@
             <td><a href='<c:out value="${tasks_of_project}" />'>Zadania</a></td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
 <div class="pagination">
-    <p>Strona <span style="font-weight: bold"> ${requestScope.page + 1} </span></p>
+    <p>Strona: <span style="font-weight: bold"> ${requestScope.page + 1} </span></p>
     <c:url value="/projects" var="previousPage">
         <c:param name="page" value="${page - 1}" />
     </c:url>
