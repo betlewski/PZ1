@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time"%>
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +9,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Lista projektów</title>
 </head>
+<style>
+    .pagination {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .pagination > * {
+        margin: 0.5em;
+    }
+</style>
 <body>
 <h2>Lista projektów</h2>
 <table border="1" cellpadding="3">
@@ -26,8 +37,12 @@
             <td><c:out value="${project.projectId}" /></td>
             <td><c:out value="${project.name}" /></td>
             <td><c:out value="${project.description}" /></td>
-            <td><c:out value="${project.createDateTime}" /></td>
-            <td><c:out value="${project.submitDateTime}" /></td>
+            <javatime:format value="${project.createDateTime}"
+                             var="fmtCreateDateTime" pattern="yyyy-MM-dd hh:mm:ss" />
+            <td><c:out value="${fmtCreateDateTime}" /></td>
+            <javatime:format value="${project.submitDateTime}" var="fmtSubmitDateTime"
+                             pattern="yyyy-MM-dd" />
+            <td><c:out value="${fmtSubmitDateTime}" /></td>
             <c:url value="/task_page.jsp" var="tasks_of_project">
                 <c:param name="x_project_id" value="${project.projectId}" />
             </c:url>
@@ -35,5 +50,17 @@
         </tr>
     </c:forEach>
 </table>
+<div class="pagination">
+    <p>Strona <span style="font-weight: bold"> ${requestScope.page + 1} </span></p>
+    <c:url value="/projects" var="previousPage">
+        <c:param name="page" value="${page - 1}" />
+    </c:url>
+    <a href='<c:out value="${previousPage}" />'>Poprzednia strona</a>
+    <c:url value="/projects" var="nextPage">
+        <c:param name="page" value="${page + 1}" />
+    </c:url>
+    <a href='<c:out value="${nextPage}" />'>Następna strona</a>
+    <p>Rozmiar strony:  <span style="font-weight: bold"> ${requestScope.sizePage} </span></p>
+</div>
 </body>
 </html>
