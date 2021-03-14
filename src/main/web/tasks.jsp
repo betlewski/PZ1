@@ -61,7 +61,7 @@
                 <javatime:format value="${task.createDateTime}"
                                  var="fmtCreateDateTime" pattern="yyyy-MM-dd HH:mm:ss"/>
                 <td><c:out value="${fmtCreateDateTime}"/></td>
-                <c:url value="/project-delete" var="delete_task">
+                <c:url value="/task-delete" var="delete_task">
                     <c:param name="task_id" value="${task.taskId}"/>
                 </c:url>
                 <c:url value="/project-edit" var="edit_task">
