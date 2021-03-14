@@ -42,7 +42,7 @@ public class ProjectsList extends HttpServlet {
             entityManager.close();
         }
 
-        projects.forEach(p -> System.out.println(p));
+        projects.forEach(System.out::println);
         request.setAttribute("page", page);
         request.setAttribute("sizePage", size);
         request.setAttribute("projects", projects);

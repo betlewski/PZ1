@@ -63,7 +63,7 @@
                 <javatime:format value="${project.submitDateTime}" var="fmtSubmitDateTime"
                                  pattern="yyyy-MM-dd" />
                 <td><c:out value="${fmtSubmitDateTime}" /></td>
-                <c:url value="/task_page.jsp" var="tasks_of_project">
+                <c:url value="/tasks" var="tasks_of_project">
                     <c:param name="project_id" value="${project.projectId}" />
                 </c:url>
                 <c:url value="/project-delete" var="delete_project">
