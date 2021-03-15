@@ -1,12 +1,11 @@
 package pl.edu.utp.pz1.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -37,7 +36,7 @@ public class Project {
     @Column(nullable = false)
     private LocalDateTime updateDateTime;
 
-    private LocalDateTime submitDateTime;
+    private LocalDate submitDate;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "project")
     private List<Task> tasks;
@@ -53,4 +52,10 @@ public class Project {
         this.description = description;
     }
 
+    public Project(String name, String description, LocalDate submitDate) {
+        this.name = name;
+        this.description = description;
+        this.createDateTime = LocalDateTime.now();
+        this.submitDate = submitDate;
+    }
 }

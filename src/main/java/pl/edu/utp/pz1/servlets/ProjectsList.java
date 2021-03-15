@@ -26,10 +26,10 @@ public class ProjectsList extends HttpServlet {
         Integer page = 0, size = 5;
         List<Project> projects;
 
-        if (pageString != null) {
+        if (pageString != null && Integer.parseInt(pageString) >= 0) {
             page = Integer.parseInt(pageString);
         }
-        if (sizeString != null) {
+        if (sizeString != null && Integer.parseInt(sizeString) >= 5) {
             size = Integer.parseInt(sizeString);
         }
 
@@ -42,7 +42,6 @@ public class ProjectsList extends HttpServlet {
             entityManager.close();
         }
 
-        projects.forEach(System.out::println);
         request.setAttribute("page", page);
         request.setAttribute("sizePage", size);
         request.setAttribute("projects", projects);

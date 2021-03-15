@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -47,6 +48,7 @@
                 <th>Opis</th>
                 <th>Utworzony</th>
                 <th>Data obrony</th>
+                <th>Ilość zadań</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -60,9 +62,10 @@
                 <javatime:format value="${project.createDateTime}"
                                  var="fmtCreateDateTime" pattern="yyyy-MM-dd HH:mm:ss" />
                 <td><c:out value="${fmtCreateDateTime}" /></td>
-                <javatime:format value="${project.submitDateTime}" var="fmtSubmitDateTime"
+                <javatime:format value="${project.submitDate}" var="fmtSubmitDateTime"
                                  pattern="yyyy-MM-dd" />
                 <td><c:out value="${fmtSubmitDateTime}" /></td>
+                <td>${fn:length(project.tasks)}</td>
                 <c:url value="/tasks" var="tasks_of_project">
                     <c:param name="project_id" value="${project.projectId}" />
                 </c:url>

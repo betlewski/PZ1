@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class InitServlet extends HttpServlet {
             throws ServletException, IOException {
         Project project = new Project("Nowy projekt", "Opis nowego projektu");
         project.setCreateDateTime(LocalDateTime.now());
-        project.setSubmitDateTime(LocalDateTime.now().plusDays(7));
+        project.setSubmitDate(LocalDate.now().plusDays(7));
 
         Task task1 = new Task("Zadanie 1", "Opis zadania 1", 1);
         task1.setCreateDateTime(LocalDateTime.now());
