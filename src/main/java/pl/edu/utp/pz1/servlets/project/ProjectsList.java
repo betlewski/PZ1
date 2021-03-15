@@ -1,4 +1,4 @@
-package pl.edu.utp.pz1.servlets;
+package pl.edu.utp.pz1.servlets.project;
 
 import pl.edu.utp.pz1.model.Project;
 import pl.edu.utp.pz1.util.HibernateUtil;

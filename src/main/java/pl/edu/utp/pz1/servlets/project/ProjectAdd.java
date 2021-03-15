@@ -1,11 +1,9 @@
-package pl.edu.utp.pz1.servlets;
+package pl.edu.utp.pz1.servlets.project;
 
 import pl.edu.utp.pz1.model.Project;
 import pl.edu.utp.pz1.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.TypedQuery;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -16,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
-@WebServlet(name = "ProjectEdit", value = "/project-edit")
-public class ProjectEdit extends HttpServlet {
+@WebServlet(name = "ProjectAdd", value = "/project-add")
+public class ProjectAdd extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +36,7 @@ public class ProjectEdit extends HttpServlet {
         }
 
         ServletContext context = getServletContext();
-        RequestDispatcher dispatcher = context.getRequestDispatcher("/project_edit.jsp");
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/project_add.jsp");
         dispatcher.forward(request, response);
     }
 

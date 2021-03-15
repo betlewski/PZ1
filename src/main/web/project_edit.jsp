@@ -16,16 +16,17 @@
     <link rel="stylesheet" href="css/styled-form.css">
 </head>
 <body>
-    <h2>Dodawanie nowego projektu</h2>
+    <h2>Edycja projektu o id: ${project.projectId}</h2>
     <form action="project-edit" method="POST">
-        <input type="text" name="name" placeholder="Nazwa projektu">
-        <textarea name="description" cols="10" rows="5" placeholder="Opis"></textarea>
-        <input type="date" name="submitDate" placeholder="Data obrony">
+        <input type="text" hidden="hidden" name="id" value="${project.projectId}">
+        <input type="text" name="name" placeholder="Nazwa projektu" value="${project.name}">
+        <textarea name="description" cols="10" rows="5" placeholder="Opis">${project.description}</textarea>
+        <input type="date" name="submitDate" placeholder="Data obrony" value="${project.submitDate}">
         <input name="btn_save" value="Zapisz" type="submit">
-    </form>
 
-    <c:if test="${not empty requestScope.newProjectId}">
-        <p>ID zapisanego projektu: ${newProjectId}</p>
-    </c:if>
+        <c:if test="${not empty successfulEdit}">
+            <p>Pomyślnie edytowano wpis o projekcie.</p>
+        </c:if>
+    </form>
 </body>
 </html>

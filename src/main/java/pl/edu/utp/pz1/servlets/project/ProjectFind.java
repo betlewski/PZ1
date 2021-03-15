@@ -1,11 +1,10 @@
-package pl.edu.utp.pz1.servlets;
+package pl.edu.utp.pz1.servlets.project;
 
 import pl.edu.utp.pz1.model.Project;
 import pl.edu.utp.pz1.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,18 +39,6 @@ public class ProjectFind extends HttpServlet {
 
     private void findByEntity(EntityManager entityManager, int projectId) throws NoResultException {
         Project project = entityManager.find(Project.class, projectId);
-        if (project != null) {
-            System.out.println("Project with ID: " + projectId + " - name: " + project.getName());
-        } else {
-            System.out.println("Project with ID: " + projectId + " was not found!");
-        }
-    }
-
-    private void findByJPQL(EntityManager entityManager, int projectId) throws NoResultException {
-        TypedQuery<Project> query = entityManager.createQuery(
-                "SELECT p FROM Project p WHERE p.projectId = :id", Project.class);
-        query.setParameter("id", projectId);
-        Project project = query.getSingleResult();
         if (project != null) {
             System.out.println("Project with ID: " + projectId + " - name: " + project.getName());
         } else {
