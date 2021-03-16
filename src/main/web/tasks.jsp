@@ -37,7 +37,10 @@
 <body>
 <div class="container">
     <h2>Lista zadań dla projektu o ID: ${param.project_id}</h2>
-    <p><a href="/" class="link">Dodaj nowe zadanie</a></p>
+    <c:url value="/task-create" var="task_create">
+        <c:param name="project_id" value="${param.project_id}" />
+    </c:url>
+    <p><a href='<c:out value="${task_create}" />' class="link">Dodaj nowe zadanie</a></p>
     <table border="1" cellpadding="3" class="styled-table">
         <thead>
         <tr>
