@@ -29,7 +29,7 @@ public class ProjectsList extends HttpServlet {
         if (pageString != null && Integer.parseInt(pageString) >= 0) {
             page = Integer.parseInt(pageString);
         }
-        if (sizeString != null && Integer.parseInt(sizeString) >= 5) {
+        if (sizeString != null && Integer.parseInt(sizeString) >= 1) {
             size = Integer.parseInt(sizeString);
         }
 

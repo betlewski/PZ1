@@ -36,9 +36,10 @@
 <link rel="stylesheet" href="css/styled-link.css">
 <body>
 <div class="container">
+    <p><a href="projects" class="link">< Wróć do listy projektów</a></p>
     <h2>Lista zadań dla projektu o ID: ${param.project_id}</h2>
     <c:url value="/task-create" var="task_create">
-        <c:param name="project_id" value="${param.project_id}" />
+        <c:param name="project_id" value="${param.project_id}"/>
     </c:url>
     <p><a href='<c:out value="${task_create}" />' class="link">Dodaj nowe zadanie</a></p>
     <table border="1" cellpadding="3" class="styled-table">
@@ -83,15 +84,24 @@
         <p>Strona: <span style="font-weight: bold"> ${requestScope.page + 1} </span></p>
         <c:url value="/tasks" var="previousPage">
             <c:param name="page" value="${page - 1}"/>
+            <c:param name="sizePage" value="${sizePage}"/>
             <c:param name="project_id" value="${param.project_id}"/>
         </c:url>
         <a href='<c:out value="${previousPage}" />' class="link">Poprzednia strona</a>
         <c:url value="/tasks" var="nextPage">
             <c:param name="page" value="${page + 1}"/>
+            <c:param name="sizePage" value="${sizePage}"/>
             <c:param name="project_id" value="${param.project_id}"/>
         </c:url>
         <a href='<c:out value="${nextPage}" />' class="link">Następna strona</a>
-        <p>Rozmiar strony: <span style="font-weight: bold"> ${requestScope.sizePage} </span></p>
+        <c:url value="/tasks" var="newSizePage">
+            <c:param name="page" value="${page}"/>
+            <c:param name="project_id" value="${param.project_id}"/>
+        </c:url>
+        <form action='<c:out value="${newSizePage}" />' method="POST"> Rozmiar strony:
+            <input type="number" name="sizePage" style="width: 10%" value="${sizePage}">
+            <input name="btn_change" type="submit" value="Zmień"/>
+        </form>
     </div>
 </div>
 </body>

@@ -30,10 +30,10 @@ public class TasksList extends HttpServlet {
             int page = 0, size = 5;
             List<Task> tasks;
 
-            if (pageString != null) {
+            if (pageString != null && Integer.parseInt(pageString) >= 0) {
                 page = Integer.parseInt(pageString);
             }
-            if (sizeString != null) {
+            if (sizeString != null && Integer.parseInt(sizeString) >= 1) {
                 size = Integer.parseInt(sizeString);
             }
 
