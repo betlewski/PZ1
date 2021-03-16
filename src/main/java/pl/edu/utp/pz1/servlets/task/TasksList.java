@@ -40,7 +40,7 @@ public class TasksList extends HttpServlet {
             EntityManager entityManager = HibernateUtil.getInstance().createEntityManager();
             try {
                 TypedQuery<Task> query = entityManager.createQuery(
-                        "SELECT t FROM Task t WHERE t.project.projectId = :id ORDER BY t.createDateTime", Task.class);
+                        "SELECT t FROM Task t WHERE t.project.projectId = :id ORDER BY t.sequence", Task.class);
                 query.setParameter("id", projectId);
                 query.setFirstResult(page * size);
                 query.setMaxResults(size);
