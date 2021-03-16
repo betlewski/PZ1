@@ -4,6 +4,8 @@ import pl.edu.utp.pz1.model.Task;
 import pl.edu.utp.pz1.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +49,10 @@ public class TaskDelete extends HttpServlet {
                 System.out.println("Task with ID: " + taskId + " was not found!");
             }
         }
-        response.sendRedirect(request.getHeader("referer"));
+        String forwardedUrl = String.format("/tasks?project_id=%s", request.getParameter("project_id"));
+        ServletContext context = getServletContext();
+        RequestDispatcher dispatcher = context.getRequestDispatcher(forwardedUrl);
+        dispatcher.forward(request, response);
     }
 
 }

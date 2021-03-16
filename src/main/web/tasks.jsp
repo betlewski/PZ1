@@ -66,8 +66,9 @@
                 <td><c:out value="${fmtCreateDateTime}"/></td>
                 <c:url value="/task-delete" var="delete_task">
                     <c:param name="task_id" value="${task.taskId}"/>
+                    <c:param name="project_id" value="${param.project_id}"/>
                 </c:url>
-                <c:url value="/project-edit" var="edit_task">
+                <c:url value="/task-edit" var="edit_task">
                     <c:param name="task_id" value="${task.taskId}"/>
                 </c:url>
                 <td>
