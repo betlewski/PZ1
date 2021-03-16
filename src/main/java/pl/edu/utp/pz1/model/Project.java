@@ -1,6 +1,8 @@
 package pl.edu.utp.pz1.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -55,7 +57,6 @@ public class Project {
     public Project(String name, String description, LocalDate submitDate) {
         this.name = name;
         this.description = description;
-        this.createDateTime = LocalDateTime.now();
         this.submitDate = submitDate;
     }
 }
