@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Edycja projektu</title>
     <style>
         h2, p {
             text-align: center;

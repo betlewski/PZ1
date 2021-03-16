@@ -51,9 +51,9 @@ public class TaskCreate extends HttpServlet {
                         entityManager.getTransaction().begin();
                         entityManager.persist(task);
                         entityManager.getTransaction().commit();
+                        request.setAttribute("newTaskId", task.getTaskId());
                         System.out.println("Task with ID: " + task.getTaskId()
                                 + ", name: " + task.getName() + " has been created!");
-                        request.setAttribute("newTaskId", task.getTaskId());
                     }
                 } finally {
                     entityManager.close();
