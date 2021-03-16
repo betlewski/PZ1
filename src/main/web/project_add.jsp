@@ -14,8 +14,10 @@
         }
     </style>
     <link rel="stylesheet" href="css/styled-form.css">
+    <link rel="stylesheet" href="css/styled-link.css">
 </head>
 <body>
+    <p><a href="projects" class="link">< Wróć do listy projektów</a></p>
     <h2>Dodawanie nowego projektu</h2>
     <form action="project-add" method="POST">
         <input type="text" name="name" placeholder="Nazwa projektu">

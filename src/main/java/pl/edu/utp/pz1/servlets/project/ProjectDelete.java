@@ -4,6 +4,8 @@ import pl.edu.utp.pz1.model.Project;
 import pl.edu.utp.pz1.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +43,10 @@ public class ProjectDelete extends HttpServlet {
             } else {
                 System.out.println("Project with ID: " + projectId + " was not found!");
             }
+
+            ServletContext context = getServletContext();
+            RequestDispatcher dispatcher = context.getRequestDispatcher("/projects");
+            dispatcher.forward(request, response);
         }
     }
 

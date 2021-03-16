@@ -14,8 +14,10 @@
         }
     </style>
     <link rel="stylesheet" href="css/styled-form.css">
+    <link rel="stylesheet" href="css/styled-link.css">
 </head>
 <body>
+    <p><a href="projects" class="link">< Wróć do listy projektów</a></p>
     <h2>Edycja projektu o id: ${project.projectId}</h2>
     <form action="project-edit" method="POST">
         <input type="text" hidden="hidden" name="id" value="${project.projectId}">

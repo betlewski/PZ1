@@ -38,7 +38,7 @@
 <body>
 <div class="container">
     <h2>Lista projektów</h2>
-    <p><a href="project-edit" class="link">Dodaj nowy projekt</a></p>
+    <p><a href="project-add" class="link">Dodaj nowy projekt</a></p>
     <table border="1" cellpadding="3" class="styled-table">
         <thead>
             <tr>
