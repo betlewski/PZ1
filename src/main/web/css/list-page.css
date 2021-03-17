@@ -1,0 +1,36 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+h2, p {
+    text-align: center;
+}
+
+p {
+    padding: 5px;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination > * {
+    margin: 0.5em;
+}
+
+input[type="submit"] {
+    border: none;
+    background-color: #009879;
+    color: white;
+    padding: 5px;
+}
+
+.styled-input {
+    margin: 0 0.1rem;
+    border: none;
+    background-color: #dddddd;
+    border-radius: .25rem;
+    padding: 5px;
+}

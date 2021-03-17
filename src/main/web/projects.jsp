@@ -10,31 +10,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Lista projektów</title>
 </head>
+<link rel="stylesheet" href="css/styled-table.css">
+<link rel="stylesheet" href="css/styled-link.css">
+<link rel="stylesheet" href="css/list-page.css">
 <style>
     .container {
         width: 75%;
-        margin: 0 auto;
-    }
-
-    h2, p {
-        text-align: center;
-    }
-
-    p {
-        padding: 5px;
-    }
-
-    .pagination {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .pagination > * {
-        margin: 0.5em;
     }
 </style>
-<link rel="stylesheet" href="css/styled-table.css">
-<link rel="stylesheet" href="css/styled-link.css">
 <body>
 <div class="container">
     <h2>Lista projektów</h2>
@@ -99,8 +82,9 @@
         <c:url value="/projects" var="newSizePage">
             <c:param name="page" value="${page}"/>
         </c:url>
-        <form action='<c:out value="${newSizePage}" />' method="POST"> Rozmiar strony:
-            <input type="number" name="sizePage" style="width: 10%" value="${sizePage}">
+        <form action='<c:out value="${newSizePage}" />' method="POST">
+            <span style="padding: 5px">Rozmiar strony:</span>
+            <input class="styled-input" type="number" name="sizePage" style="width: 10%" value="${sizePage}">
             <input name="btn_change" type="submit" value="Zmień"/>
         </form>
     </div>

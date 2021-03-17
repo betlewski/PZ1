@@ -9,31 +9,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Lista zadań</title>
 </head>
-<style>
-    .container {
-        width: 60%;
-        margin: 0 auto;
-    }
-
-    h2, p {
-        text-align: center;
-    }
-
-    p {
-        padding: 5px;
-    }
-
-    .pagination {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .pagination > * {
-        margin: 0.5em;
-    }
-</style>
 <link rel="stylesheet" href="css/styled-table.css">
 <link rel="stylesheet" href="css/styled-link.css">
+<link rel="stylesheet" href="css/list-page.css">
 <body>
 <div class="container">
     <p><a href="projects" class="link">< Wróć do listy projektów</a></p>
@@ -99,7 +77,7 @@
             <c:param name="project_id" value="${param.project_id}"/>
         </c:url>
         <form action='<c:out value="${newSizePage}" />' method="POST"> Rozmiar strony:
-            <input type="number" name="sizePage" style="width: 10%" value="${sizePage}">
+            <input class="styled-input" type="number" name="sizePage" style="width: 10%" value="${sizePage}">
             <input name="btn_change" type="submit" value="Zmień"/>
         </form>
     </div>
